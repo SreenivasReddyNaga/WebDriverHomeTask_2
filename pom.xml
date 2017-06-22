@@ -39,21 +39,13 @@
 			<artifactId>webdrivermanager</artifactId>
 			<version>LATEST</version>
 		</dependency>
-		<!-- <dependency> <groupId>com.sikulix</groupId> <artifactId>sikulixapi</artifactId> 
-			<version>LATEST</version> </dependency> <dependency> <groupId>org.sikuli</groupId> 
-			<artifactId>sikuli-api</artifactId> <version>1.0.2</version> <systemPath>${project.basedir}\libs\sikulixapi.jar</systemPath> 
-			<scope>system</scope> </dependency> -->
+		
 		<dependency>
 			<groupId>com.opencsv</groupId>
 			<artifactId>opencsv</artifactId>
 			<version>LATEST</version>
 		</dependency>
 
-		<!-- <dependency>
-			<groupId>com.oracle</groupId>
-			<artifactId>ojdbc14</artifactId>
-			<version>10.2.0.4.0</version>
-		</dependency> -->
 	</dependencies>
 	<build>
 		<plugins>
@@ -73,7 +65,7 @@
 				<version>2.20</version>
 				<configuration>
 					<suiteXmlFiles>
-						<suiteXmlFile>src/test/resources/Testng1.xml</suiteXmlFile>
+						<suiteXmlFile>src/test/resources/Testng.xml</suiteXmlFile>
 					</suiteXmlFiles>
 				</configuration>
 			</plugin>
