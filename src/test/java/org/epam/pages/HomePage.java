@@ -1,9 +1,9 @@
-package org.flight.pages;
+package org.epam.pages;
 
 import java.util.Map;
 
-import org.commonlibrary.DatePickerClass;
-import org.commonlibrary.HelperClass;
+import org.epam.commonlibrary.DatePickerClass;
+import org.epam.commonlibrary.HelperClass;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -15,10 +15,10 @@ public class HomePage extends BasePage {
 	@FindBy(xpath = "//span[text()='Return']")
 	private WebElement returnLabel;
 
-	@FindBy(id = "AvailabilitySearchInputXmlSearchView_TextBoxMarketOrigin1")
+	@FindBy(xpath = "//input[contains(@id,'_TextBoxMarketOrigin1')]")
 	private WebElement txtFrom;
 
-	@FindBy(id = "AvailabilitySearchInputXmlSearchView_TextBoxMarketDestination1")
+	@FindBy(xpath = "//input[contains(@id,'_TextBoxMarketDestination1')]")
 	private WebElement txtDestination;
 
 	private String cityFirst = "//div[@id='stationsList']/ul/li/a[contains(text(),'";
@@ -30,10 +30,10 @@ public class HomePage extends BasePage {
 	@FindBy(id = "adtSelectorDropdown")
 	private WebElement slctAdults;
 
-	@FindBy(id = "AvailabilitySearchInputXmlSearchView_DropDownListPassengerType_CHD")
+	@FindBy(id = "//select[contains(@id,'_CHD')]")
 	private WebElement slctChildren;
 
-	@FindBy(id = "AvailabilitySearchInputXmlSearchView_DropDownListPassengerType_INFANT")
+	@FindBy(xpath = "//select[contains(@id,'_INFANT')]")
 	private WebElement slctBabies;
 
 	@FindBy(xpath = "//div[@class='popupBottomSingleButton']/a")
@@ -42,10 +42,10 @@ public class HomePage extends BasePage {
 	@FindBy(xpath = "//label[@for='isResident']")
 	private WebElement chkResidents;
 
-	@FindBy(id = "AvailabilitySearchInputXmlSearchView_residentFamNumSelector")
+	@FindBy(xpath = "//select[contains(@id,'_residentFamNumSelector')]")
 	private WebElement slctFamilyType;
 
-	@FindBy(id = "AvailabilitySearchInputXmlSearchView_btnClickToSearchNormal")
+	@FindBy(xpath = "//select[contains(@id,'_btnClickToSearchNormal')]")
 	private WebElement lnkSearchFlights;
 
 	private HelperClass helper;
@@ -95,7 +95,7 @@ public class HomePage extends BasePage {
 		helper.selectOptionByText(slctChildren, childrenCount);
 		helper.waitForElementVisible(slctBabies, timeOut);
 		helper.selectOptionByText(slctBabies, babiesCount);
-		helper.jsExecutor(babyPopup);
+		helper.jsClick(babyPopup);
 	}
 
 	private void setFamilyType(String familyType) {

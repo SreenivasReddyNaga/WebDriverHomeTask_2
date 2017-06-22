@@ -1,9 +1,9 @@
-package org.flight.pages;
+package org.epam.pages;
 
 import java.util.Map;
 import java.util.TreeMap;
 
-import org.commonlibrary.DatePickerClass;
+import org.epam.commonlibrary.DatePickerClass;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -18,10 +18,7 @@ public class BookingResultsPage {
 	private WebElement txtCityDetails;
 
 	@FindBy(xpath = "//span[@id='inboundDate']/parent::p")
-	private WebElement txtPassengers;
-
-	@FindBy(xpath = "ControlGroupScheduleSelectView_AvailabilityInputScheduleSelectView_RadioButtonMkt1Fare1")
-	private WebElement slctBasicPrize;
+	private WebElement txtPassengers;	
 
 	private DatePickerClass datePicker;
 

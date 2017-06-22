@@ -3,19 +3,19 @@ package org.epam.tat;
 import java.util.Map;
 import java.util.TreeMap;
 
-import org.commonlibrary.WebDriverBaseClass;
-import org.flight.pages.BookingResultsPage;
-import org.flight.pages.HomePage;
+import org.epam.commonlibrary.WebDriverBaseClass;
+import org.epam.pages.BookingResultsPage;
+import org.epam.pages.HomePage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
 public class FlightBookingTest extends WebDriverBaseClass {
 	
-	private String expTitle = "Cheap flights, hotel deals, rental car | vueling.com";		 
-	private String selectedFromCity="Almeria (LEI)";
-	private String selectedDestinationCity= "Barcelona (BCN)";
-	private String chooseYourflightTabStatusStatus="selected";
+	private static final String expTitle = "Cheap flights, hotel deals, rental car | vueling.com";		 
+	private static final String selectedFromCity="Almeria (LEI)";
+	private static final String selectedDestinationCity= "Barcelona (BCN)";
+	private static final String chooseYourflightTabStatusStatus="selected";
 	private Map<String, String> data;	
 
 	@Test
@@ -37,7 +37,6 @@ public class FlightBookingTest extends WebDriverBaseClass {
 		softAssert.assertEquals(bookingPage.getPassangersDetails().get("JourneyDates"), testData().get("outBoundDate")+" - "+testData().get("inBoundDate"));
 		softAssert.assertEquals(bookingPage.getPassangersDetails().get("PassengersData"),
 				testData().get("adultsCount")+" Adults, "+testData().get("childrenCount")+" Children, "+testData().get("babiesCount")+" Babies");
-		
 		softAssert.assertAll();
 		
 	}

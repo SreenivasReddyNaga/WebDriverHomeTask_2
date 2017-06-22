@@ -1,4 +1,4 @@
-package org.flight.pages;
+package org.epam.pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -13,10 +13,10 @@ public class DateSelectionPage {
 	@FindBy(className = "ui-datepicker-year")
 	private WebElement lblYear;
 
-	@FindBy(xpath = "//div[@class='ui-datepicker-header ui-widget-header ui-helper-clearfix ui-corner-right']/a")
+	@FindBy(xpath = "//div[contains(@class='ui-corner-right')]/a")
 	private WebElement lnkNext;
 
-	@FindBy(xpath = "//div[@class='ui-datepicker-header ui-widget-header ui-helper-clearfix ui-corner-left']/a")
+	@FindBy(xpath = "//div[contains(@class,'ui-corner-left')]/a")
 	private WebElement lnkPrevious;
 	
 	@FindBy(className = "ui-datepicker-calendar")

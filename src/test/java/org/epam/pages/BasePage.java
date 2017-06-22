@@ -1,4 +1,4 @@
-package org.flight.pages;
+package org.epam.pages;
 
 import org.openqa.selenium.WebDriver;
 
@@ -10,7 +10,7 @@ public abstract class BasePage {
 		this.driver = driver;
 	}
 	
-	public WebDriver getDriver(){
+	protected WebDriver getDriver(){
 		return this.driver;
 	}
 
