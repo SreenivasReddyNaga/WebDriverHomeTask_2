@@ -2,8 +2,8 @@ package org.epam.pages;
 
 import java.util.Map;
 
-import org.epam.commonlibrary.DatePickerClass;
-import org.epam.commonlibrary.HelperClass;
+import org.epam.commonutils.DatePickerClass;
+import org.epam.commonutils.HelperClass;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -21,7 +21,7 @@ public class HomePage extends BasePage {
 	@FindBy(xpath = "//input[contains(@id,'_TextBoxMarketDestination1')]")
 	private WebElement txtDestination;
 
-	private String cityFirst = "//div[@id='stationsList']/ul/li/a[contains(text(),'";
+	private String cityFirst = "//div[@id='stationsList']/ul/li/a/strong[contains(text(),'";
 	private String cityNext = "')]";
 
 	@FindBy(id = "DropDownListPassengerType_ADT_PLUS")
@@ -30,10 +30,10 @@ public class HomePage extends BasePage {
 	@FindBy(id = "adtSelectorDropdown")
 	private WebElement slctAdults;
 
-	@FindBy(id = "//select[contains(@id,'_CHD')]")
+	@FindBy(xpath= "//select[@id='AvailabilitySearchInputXmlSearchView_DropDownListPassengerType_CHD']")
 	private WebElement slctChildren;
 
-	@FindBy(xpath = "//select[contains(@id,'_INFANT')]")
+	@FindBy(xpath = "//select[@id='AvailabilitySearchInputXmlSearchView_DropDownListPassengerType_INFANT']")
 	private WebElement slctBabies;
 
 	@FindBy(xpath = "//div[@class='popupBottomSingleButton']/a")
@@ -45,7 +45,7 @@ public class HomePage extends BasePage {
 	@FindBy(xpath = "//select[contains(@id,'_residentFamNumSelector')]")
 	private WebElement slctFamilyType;
 
-	@FindBy(xpath = "//select[contains(@id,'_btnClickToSearchNormal')]")
+	@FindBy(xpath = "//a[contains(@id,'_btnClickToSearchNormal')]")
 	private WebElement lnkSearchFlights;
 
 	private HelperClass helper;
@@ -66,6 +66,12 @@ public class HomePage extends BasePage {
 	private void setFromCity(String fromCity) {
 		txtFrom.clear();
 		txtFrom.sendKeys(fromCity);
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		By lnkCityFrom = By.xpath(cityFirst + fromCity + cityNext);
 		getDriver().findElement(lnkCityFrom).click();
 	}
@@ -74,6 +80,12 @@ public class HomePage extends BasePage {
 		helper.waitForElementVisible(txtDestination, timeOut);
 		txtDestination.clear();
 		txtDestination.sendKeys(destinationCity);
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		By destination = By.xpath(cityFirst + destinationCity + cityNext);
 		getDriver().findElement(destination).click();
 	}
